@@ -1,6 +1,0 @@
-{
-    "rust-analyzer.linkedProjects": [
-        "./Cargo.toml"
-    ],
-    "lldb.cargo": "/home/trungthudo13/.cargo/bin/cargo"
-}
