@@ -1,8 +1,8 @@
 // src/consts.rs
 
-pub enum grant_type {
-    Password = "password",
-    RefreshToken = "refresh_token",
+pub enum GrantType {
+    Password,
+    RefreshToken,
 }
 
-static LOGIN_METHOD: str = "login_method";
+static LOGIN_METHOD: &str = "login_method";
