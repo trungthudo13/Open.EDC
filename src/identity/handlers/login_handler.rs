@@ -1,12 +1,13 @@
 // src/identity/handlers/login_handler.rs
 
-use crate::identity::dtos::login_request_dto::LoginRequestDto;
+use crate::identity::schemas::login::{LoginRequest, LoginResponse};
 use axum::{Json, http::StatusCode, response::IntoResponse};
 
 pub async fn handle(
-    Json(login_request): Json<LoginRequestDto>,
+    login_request: Json<LoginRequest>,
     // ) -> Result<impl IntoResponse, StatusCode> {
 ) -> impl IntoResponse {
-    println!("Received login request: {:?}", login_request);
-    (StatusCode::OK, Json(login_request))
+    let Json(instance) = login_request;
+    println!("Received login request: {:?}", instance);
+    (StatusCode::OK, Json(instance))
 }
