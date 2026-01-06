@@ -5,3 +5,4 @@ edition = "2024"
 
 [dependencies]
 open_edc_domain = { path = "../domain" }
+open_edc_tools = { path = "../tools" }

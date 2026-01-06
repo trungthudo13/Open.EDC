@@ -2,5 +2,5 @@
 name = "open_edc_infrastructure"
 version = "0.1.0"
 edition = "2024"
-
 [dependencies]
+open_edc_tools = { path = "../tools" }

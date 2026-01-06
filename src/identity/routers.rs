@@ -1,14 +1,14 @@
 // src/identity/routers.rs
-use super::handlers::{
-    login_handler::handle as login_handler, userinfo_handler::handle as userinfo_handler,
-};
-use axum::{Router, routing::{get, post}};
+use axum::Router;
+use utoipa_axum::{router::OpenApiRouter, routes};
 
 pub fn router() -> Router {
-    return Router::new()
-        .route("/api/identity/v1/login", get(login_handler))
-        .route("/api/identity/v1/authorize", post(userinfo_handler))
-        .route("/api/identity/v1/revoke", post(userinfo_handler))
-        .route("/api/identity/v1/userinfo", post(userinfo_handler));
-    // .route("/foo/bar", get(root));
+    let (router, _api) = OpenApiRouter::new()
+        .routes(routes!(
+            super::handlers::login_handler::handle,
+            super::handlers::userinfo_handler::handle
+        ))
+        .split_for_parts();
+
+    return router;
 }

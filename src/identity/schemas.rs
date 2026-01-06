@@ -1,3 +1,3 @@
-// src/identity/dtos.rs
+// src/identity/schemas.rs
 
 pub mod login;
