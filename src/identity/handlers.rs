@@ -1,4 +1,4 @@
 // src/identity/handlers.rs
 
-pub mod login_handler;
+pub mod login;
 pub mod userinfo_handler;

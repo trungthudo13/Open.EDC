@@ -5,8 +5,8 @@ use utoipa_axum::{router::OpenApiRouter, routes};
 pub fn router() -> Router {
     let (router, _api) = OpenApiRouter::new()
         .routes(routes!(
-            super::handlers::login_handler::handle,
-            super::handlers::userinfo_handler::handle
+            super::handlers::login::handle,
+            // super::handlers::userinfo_handler::handle
         ))
         .split_for_parts();
 
