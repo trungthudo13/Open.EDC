@@ -1,16 +1,17 @@
+mod auth;
 mod consts;
 mod identity;
 
 // use crate::common::schemas::openapi::OpenApiDoc;
-use crate::identity::routers::router as identities_router;
+use crate::auth::routers::router as identities_router;
 use axum::Router;
 use utoipa::OpenApi;
 use utoipa_swagger_ui::SwaggerUi;
 
 #[derive(OpenApi)]
 #[openapi(paths(
-    crate::identity::handlers::authorize_handler::handle,
-    crate::identity::handlers::userinfo_handler::handle
+    crate::auth::handlers::login::handler,
+    // crate::identity::handlers::userinfo_handler::handle,
 ))]
 pub struct OpenApiDoc;
 

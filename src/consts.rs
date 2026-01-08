@@ -1,8 +1,16 @@
 // src/consts.rs
 
+use serde::{Deserialize, Serialize};
+
+#[derive(Debug, Deserialize, Serialize, utoipa::ToSchema)]
+#[serde(rename_all = "snake_case")]
 pub enum GrantType {
     Password,
     RefreshToken,
 }
 
-static LOGIN_METHOD: &str = "login_method";
+impl Default for GrantType {
+    fn default() -> Self {
+        GrantType::Password
+    }
+}

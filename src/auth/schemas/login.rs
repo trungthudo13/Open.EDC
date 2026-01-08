@@ -1,15 +1,17 @@
 use serde::{Deserialize, Serialize};
 
+use crate::consts::GrantType;
+
 #[derive(Debug, Deserialize, Serialize, utoipa::ToSchema)]
 pub struct LoginRequestDto {
-    pub grant_type: String,
+    pub grant_type: GrantType,
     pub client_id: String,
     pub client_secret: String,
 }
 
 #[derive(Debug, Deserialize, Serialize, utoipa::ToSchema)]
 pub struct LoginResponseDto {
-    pub grant_type: String,
+    pub grant_type: GrantType,
     pub client_id: String,
     pub client_secret: String,
 }
@@ -24,9 +26,4 @@ impl LoginResponseDto {
             client_secret: login_request.client_secret,
         }
     }
-
-    // A regular method to access data
-    // pub fn display_info(&self) {
-    //     println!("{} is {} years old.", self.grant_type, self.client_id);
-    // }
 }

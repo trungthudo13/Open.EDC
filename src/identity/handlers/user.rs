@@ -11,6 +11,6 @@
         (status = 401, description = "Unauthorized")
     )
 )]
-pub async fn handle() -> &'static str {
+pub async fn handler() -> &'static str {
     "Hello, World!"
 }

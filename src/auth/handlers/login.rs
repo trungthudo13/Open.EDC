@@ -1,21 +1,21 @@
 // src/identity/handlers/authorize_handler.rs
 
-use crate::identity::schemas::login::{LoginRequestDto, LoginResponseDto};
+use crate::auth::schemas::login::{LoginRequestDto, LoginResponseDto};
 use axum::{Json, http::StatusCode, response::IntoResponse};
 
 #[utoipa::path(
     post,
     tag = "Identity",
     tags = ["Identity"],
-    operation_id  = "Login",
+    operation_id = "Login",
     path = "/api/auth/login",
-    request_body =  LoginRequestDto,
+    request_body = LoginRequestDto,
     responses(
-        (status = 200, description = "OK", body = LoginResponseDto),
-        (status = 401, description = "Unauthorized")
+        (status = StatusCode::OK, description = "OK", body = LoginResponseDto),
+        (status = StatusCode::UNAUTHORIZED, description = "Unauthorized")
     )
 )]
-pub async fn handle(
+pub async fn handler(
     Json(req_body): Json<LoginRequestDto>,
     // ) -> Result<impl IntoResponse, StatusCode> {
 ) -> impl IntoResponse {
